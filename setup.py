@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 versionFile = "VERSION"
 setup(name="frhdtools",
     version=open(versionFile).read(),
-    description="Library to work with Free Rider HD Tracks",
+    description="Library to edit FRHD tracks",
     long_description=open("README.rst").read(),
-    url="https://github.com/maxmillion18/frhdtools",
-    author="maxmillion18",
-    author_email="icantpostmyemailhere@gmail.com",
+    url="https://github.com/gaetgu/frhd",
+    author="Gaetgu",
+    author_email="gabriel.ethan.phantom@gmail.com",
     license="MIT License",
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
