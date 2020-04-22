@@ -47,7 +47,6 @@ my_track.insCheck(90,10) # Checkpoint
 my_track.insStar(90,10) # Star
 my_track.insSlowMo(90,10) # Slow Motion
 ```
- 
- 
- This was all inspired by frhd.js, a library made by ObeyLordGoomy that does the same thing, but for JavaScript
+
+This was all inspired by frhd.js, a library made by ObeyLordGoomy that does the same thing, but for JavaScript
 
