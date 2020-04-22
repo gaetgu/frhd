@@ -39,7 +39,7 @@ A quick note on how the coordinates work: The origin of the cartesian coordinate
 <br>
 The other power-ups are as follows:
 <br>
-```python
+```
 # Boost:
 my_track.insBoost(90,-10,90)
 # Bomb:
