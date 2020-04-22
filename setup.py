@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 versionFile = "VERSION"
 setup(name="frhd",
-    version=open(versionFile).read(),
+    version=0.1,
     description="Library to edit FRHD tracks",
     long_description=open("README.rst").read(),
     url="https://github.com/gaetgu/frhd",
