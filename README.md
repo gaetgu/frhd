@@ -39,19 +39,13 @@ A quick note on how the coordinates work: The origin of the cartesian coordinate
 <br>
 The other power-ups are as follows:
 <br>
-```
-# Boost:
-my_track.insBoost(90,-10,90)
-# Bomb:
-my_track.insBomb(90,10) # No rotation as it is omni-directional.
-# Gravity:
-my_track.insGravity(90,10,90)
-# Checkpoint:
-my_track.insCheck(90,10)
-# Star:
-my_track.insStar(90,10)
-# Slow Motion
-my_track.insSlowMo(90,10)
+```python
+my_track.insBoost(90,-10,90) # Boost
+my_track.insBomb(90,10) # Bomb (no rotation as it is omni-directional)
+my_track.insGravity(90,10,90) # Gravity
+my_track.insCheck(90,10) # Checkpoint
+my_track.insStar(90,10) # Star
+my_track.insSlowMo(90,10) # Slow Motion
 ```
  
  
