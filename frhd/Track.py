@@ -35,7 +35,7 @@ class Track():
         assert rot in range(360)
         self.tracklist[2] += [['B',x,y,rot]]
     
-    def insStartLine():
+    def insStartLine(self):
         insLine(-40, 50, 40, 50, 'p')
 
     def genCode(self):
