@@ -34,6 +34,9 @@ class Track():
     def insBoost(self,x,y,rot):
         assert rot in range(360)
         self.tracklist[2] += [['B',x,y,rot]]
+    
+    def insStartLine():
+        insLine(-40, 50, 40, 50, 'p')
 
     def genCode(self):
         self.trackdatalist = [[],[],[]] #holds raw data to be joined into frhd text
