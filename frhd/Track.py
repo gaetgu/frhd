@@ -50,10 +50,10 @@ class Track():
         self.trackdatalist = [[],[],[]] #holds raw data to be joined into frhd text
 
         for pline in self.tracklist[0]: #physics
-            self.trackdatalist[0] += En.encline(pline[0],pline[1],pline[2],pline[3])
+            self.trackdatalist[0] += En.encline(pline)
 
         for sline in self.tracklist[1]: #scenery
-            self.trackdatalist[1] += En.encline(sline[0],sline[1],sline[2],sline[3])
+            self.trackdatalist[1] += En.encline(sline)
 
         for pup in self.tracklist[2]: #powerups
             if len(pup) == 3: #if powerup does not have the rotation attribute
