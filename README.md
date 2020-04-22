@@ -3,7 +3,7 @@ Free Rider HD is an HTML5 game that utilizes the canvas element to display an in
 
 First of all, import the library:
 ```python
-import frhd # Bello
+import frhd
 ```
 Now create a track class:
 ```python
@@ -40,6 +40,7 @@ A quick note on how the coordinates work: The origin of the cartesian coordinate
 The other power-ups are as follows:
 <br>
 ```python
+
 my_track.insBoost(90,-10,90) # Boost
 my_track.insBomb(90,10) # Bomb (no rotation as it is omni-directional)
 my_track.insGravity(90,10,90) # Gravity
