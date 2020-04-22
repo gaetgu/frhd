@@ -1,5 +1,5 @@
 
-def encline(*points):   #encode line.
+def encline(points):   #encode line.
 	return [[' '.join([b32e(point) for point in points]) + ',']]
 
 def encpup(x,y,pupcode):
