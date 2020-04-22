@@ -52,7 +52,6 @@ my_track.insCheck(90,10)
 my_track.insStar(90,10)
 # Slow Motion
 my_track.insSlowMo(90,10)
-
 ```
  
  
