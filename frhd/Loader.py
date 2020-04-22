@@ -1,5 +1,5 @@
 
-import Decode as De #Decode.py - if you haven't already
+import decode as De #Decode.py - if you haven't already
                                    #go take a look ;)
 
 def loadTrack(track):
