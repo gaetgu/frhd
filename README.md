@@ -7,7 +7,7 @@ import frhd
 ```
 Now create a track class:
 ```python
-my_track = frhdtools.Track.Track()
+my_track = frhd.Track.Track()
 ```
 Now that you have the frontmatter out of the way, create a line by calling
 ```python
@@ -20,8 +20,8 @@ print(my_track.genCode())
 ```
 To create a scenery line you use the same code as last time, with the exception of replacing the `'p'` with an `'s'`. What you have should look like this:
 ```python
-import frhdtools
-my_track = frhdtools.Track.Track()
+import frhd
+my_track = frhd.Track.Track()
 my_track.insLine(-40,50,100,50,'s')
 print(my_track.genCode())
 ```
