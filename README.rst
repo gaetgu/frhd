@@ -52,8 +52,7 @@ A quick note on how the coordinates work: The origin of the cartesian
 coordinate plane (0,0) is located near the center of the rider. To see
 where this is, turn on the grid in the editor. Zoom out. You should see
 thicker, darker lines at certain intervals. Where they intersect inside
-the rider is (0,0). When drawing a line, the first two coordinates are
-the starting point and the second two are the endpoint. When using any
+the rider is (0,0). When drawing a line, the first argument is the line type and then you can add as many coordinates as you want (e.g. my_track.insLine('p', x1, y1, x2, y2, x3, y3, x4, y4)). When using any
 kind of power-up, the third coordinate is acually degrees of rotation.
 Every coordinate is one-tenth of a ten grid square (the default size
 when you show the grid).
