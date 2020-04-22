@@ -1,7 +1,3 @@
-#Decode.py - Freerider HD object decoder
-#by maxmillion18
-#http://www.github.com/maxmillion18
-#http://www.freeriderhd.com/u/MaxwellNurzia
 
 import re #need it
 
