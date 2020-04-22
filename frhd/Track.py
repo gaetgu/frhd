@@ -9,11 +9,19 @@ class Track():
         self.trackdata = '' #This will hold the track's mathematical parts
         self.tracklist = [[],[],[]] #3 lists: one for physics lines, one for scenery, and one for powerups
 
-    def insLine(self,x1,y1,x2,y2,typeofline):
-        if typeofline == 'p': #physics
-            self.tracklist[0] += [[x1,y1,x2,y2]]
-        if typeofline == 's': #scenery
-            self.tracklist[1] += [[x1,y1,x2,y2]]
+    def insLine(self, typeofline, *points):
+	    points = list(points)
+	    formattedPoints = []
+	    unpack = (lambda x, n:[formattedPoints.append(item) if type(item) == int else unpack(item, n+1) for item in x if n <= 100])
+	    unpack(points, 0)
+	    if len(formattedPoints) % 2 == 1:
+		    points.pop()
+	    if len(formattedPoints) < 4:
+		    return
+	    if typeofline == 'p': #physics
+		    self.tracklist[0] += [formattedPoints]
+	    if typeofline == 's': #scenery
+		    self.tracklist[1] += [formattedPoints]
 
     def insStar(self,x,y):
         self.tracklist[2] += [['C',x,y]]
