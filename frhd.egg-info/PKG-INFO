@@ -1,8 +1,8 @@
 Metadata-Version: 1.1
 Name: frhdtools
 Version: 0.0.4.1
-Summary: Library to work with Free Rider HD Tracks
-Home-page: https://github.com/maxmillion18/frhdtools
+Summary: A library for working with FRHD tracks, similar to ObeyLordGoomy's frhd.js.
+Home-page: https://github.com/gaetgu/frhd
 Author: maxmillion18
 Author-email: icantpostmyemailhere@gmail.com
 License: MIT License
@@ -11,17 +11,7 @@ Description: frhdtools
         
         A Python library for working with Free Rider HD Tracks.
         
-        |pip stable| |type sdist| |license MIT|
-        
-        Introduction
-        ------------
-        
-        Free Rider HD is an online HTML5 + JS game where users can draw bike
-        tracks, upload them to a community of players, and ride them. (`Go try
-        it out!`_)
-        
-        When drawing a track, you can import track code from a file or from your
-        clipboard. This library (as of now) allows you to generate that code.
+        |pip stable| |license MIT|
         
         Install
         -------
@@ -86,15 +76,13 @@ Description: frhdtools
         
         Then paste in your generated code at the window that pops up.
         
-        After it loads your file, the track should look **exactly** like this:
+        After it loads your file, the track should look like this:
         
         .. figure:: https://raw.githubusercontent.com/maxmillion18/frhdtools/master//images/example1/frhdexample1.png
            :alt: The imported track.
         
-        Wondering about the helmet? It’s just swag.
-        
         Congratulations! You’ve just finished you first line segment. It will
-        get easier, I promise. :wink:
+        get easier, I promise.
         
         Example 2: Scenery Line
         ~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,14 +90,11 @@ Description: frhdtools
         Remember how I mentioned that there were different types of lines? Well
         here’s what they are.
         
-        In the last example we used a physics line. The rider can interact and ride on those.
+        In the last example we used a physics line.
         
-        In this example you’ll make a **scenery line**. A scenery line is a line
-        that the rider cannot ride on. It is purely just for scenery. Also,
-        scenery lines are gray instead of black.
+        In this example you’ll make a **scenery line**.
         
-        It’s really easy to make a scenery line. Instead of using the code from
-        last time:
+        It’s really easy to make a scenery line. It is **almost** exactly the same as the last code we used:
         
         .. code:: python
         
@@ -127,16 +112,11 @@ Description: frhdtools
             my_track.insLine(-40,50,100,50,'s')
             print(my_track.genCode())
         
-        (FYI: The code should be ``#-18 1i 34 1i,##``)
-        
         Now, when you plug the code into FRHD, you will get this:
         
         .. figure:: https://raw.githubusercontent.com/maxmillion18/frhdtools/master/images/example2/frhdexample2.png
            :alt: A scenery line.
-        
-        Note: the rider will fall through the line as it does not have physics.
-        This is normal.
-        
+
         Now you have made a scenery line. Great!
         
         Example 3: Boost
@@ -165,8 +145,6 @@ Description: frhdtools
         
         This will spawn a boost powerup at (90,10). It will be rotated 90 degrees.
         
-        ** By the way, the code should look like this: ``-18 1i 34 1i,##B 2q a 2q,#``
-        
         Plug that into FRHD, and you're left with this:
         
         .. figure:: https://raw.githubusercontent.com/maxmillion18/frhdtools/master/images/example3/boost.gif
@@ -175,7 +153,7 @@ Description: frhdtools
         Example 4: Bomb
         ~~~~~~~~~~~~~~~
         
-        In this example, you'll learn how to spawn a bomb powerup. Bombs explode when you touch them.
+        In this example, you'll learn how to spawn a bomb powerup.
         
         So, to get started we'll take our code from our first example and add my_track.insBomb():
         
@@ -216,12 +194,7 @@ Description: frhdtools
         .. figure:: https://raw.githubusercontent.com/maxmillion18/frhdtools/master/images/example5/gravity.gif
            :alt: Gravity!
         
-        Honestly, I think that this is one of the coolest features in FRHD; I really apprieciate that the developers took time to put it there.
-        
-        .. _Go try it out!: https://www.freeriderhd.com
-        
         .. |pip stable| image:: https://img.shields.io/badge/pip-stable-green.svg
-        .. |type sdist| image:: https://img.shields.io/badge/type-sdist-blue.svg
         .. |license MIT| image:: https://img.shields.io/badge/license-MIT-blue.svg
         
 Keywords: development freeriderhd freerider code track tracks
@@ -230,4 +203,4 @@ Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Topic :: Software Development :: Code Generators
 Classifier: License :: OSI Approved :: MIT License
-Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3 :: 
