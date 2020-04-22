@@ -3,7 +3,7 @@ Free Rider HD is an HTML5 game that utilizes the canvas element to display an in
 
 First of all, import the library:
 ```python
-import frhd
+import frhd # Bello
 ```
 Now create a track class:
 ```python
