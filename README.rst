@@ -70,5 +70,9 @@ The other power-ups are as follows:
     my_track.insStar(90,10) # Star
     my_track.insSlowMo(90,10) # Slow Motion
 
+
+NOTE: As it is a pain to update the docs at pypi I will not keep these updated very well.
+To see the up to date docs go to https://github.com/gaetgu/frhd/blob/master/README.md
+---
 This was all inspired by frhd.js, a library made by ObeyLordGoomy that
 does the same thing, but for JavaScript
