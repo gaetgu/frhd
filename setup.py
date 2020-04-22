@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 versionFile = "VERSION"
-setup(name="frhdtools",
+setup(name="frhd",
     version=open(versionFile).read(),
     description="Library to edit FRHD tracks",
     long_description=open("README.md").read(),
