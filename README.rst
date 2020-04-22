@@ -15,7 +15,7 @@ Now create a track class:
 
 .. code:: python
 
-    my_track = frhdtools.Track.Track()
+    my_track = frhd.Track.Track()
 
 Now that you have the frontmatter out of the way, create a line by
 calling
@@ -37,8 +37,8 @@ look like this:
 
 .. code:: python
 
-    import frhdtools
-    my_track = frhdtools.Track.Track()
+    import frhd
+    my_track = frhd.Track.Track()
     my_track.insLine(-40,50,100,50,'s')
     print(my_track.genCode())
 
