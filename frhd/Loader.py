@@ -1,7 +1,3 @@
-#Loader.py - Freerider HD Track Loader
-#by maxmillion18
-#http://www.github.com/maxmillion18
-#http://www.freeriderhd.com/u/MaxwellNurzia
 
 import Decode as De #Decode.py - if you haven't already
                                    #go take a look ;)
