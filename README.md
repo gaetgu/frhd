@@ -43,6 +43,9 @@ my_track.insStar(90,10) # Star
 my_track.insSlowMo(90,10) # Slow Motion
 ```
 
+---
+
+
 Some new syntax (still in beta):
 
 ```python
