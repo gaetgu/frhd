@@ -9,7 +9,7 @@ class Track():
 
 	def moveTrack(self, fov, track, xcoord, ycoord):
 
-	track_code = None
+			track_code = None
 			if fov == 'f':
 				global track_code
 				track_code = open(track, 'r')
