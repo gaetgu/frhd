@@ -56,7 +56,7 @@ This is pretty self-explanatory. just make a variable containing a *string* of y
 --- 
 PLANS:
   - Have the ability to open a file *or* use a variable
-  - Tell it how much to move in the function, instead of inputting into the cmd
+  - ~~~Tell it how much to move in the function, instead of inputting into the cmd~~~
 
 NOTE:
   - All beta developments are in the *beta* branch. If you would like to help, file an issue and I will get back to you ASAP.
