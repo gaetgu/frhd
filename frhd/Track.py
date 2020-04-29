@@ -9,7 +9,18 @@ class Track():
         self.trackdata = '' #This will hold the track's mathematical parts
         self.tracklist = [[],[],[]] #3 lists: one for physics lines, one for scenery, and one for powerups
 	
-    def moveTrack(self, track_code, x-coord, y-coord):
+    def moveTrack(self, fov, track, x-coord, y-coord):
+	    
+	    track_code = None
+	    
+	    if fov == 'f':
+		global track_code
+		track_code = open(track, 'r')
+	    else:
+		global track_code
+		track_code = str(track)
+		
+		
             print((lambda c,n,x,y,l:'#'.join([','.join([(lambda o:' '.join([(lambda m:(lambda p,v:'0'if p==0else(('-'if v else'')+''.join([n[((p//(32**q))%32)]for q in range(int(l.log(p,32))+1)][::-1])))(abs(m),(m<0)))(int(m,32)+x if(t!=2and j%2==0)or(t==2and j%2==1)else int(m,32)+y)if(t!=2or j!=0)else m for j,m in enumerate(o)if m!='']))(i.split(' '))for i in d])for t,d in enumerate(c)]))([a.split(',')for a in track_code.split('#')],list('0123456789abcdefghijklmnopqrstuv'),int(x-coord),int(y-coord),__import__('math')))
     
     def insLine(self, typeofline, *points):
