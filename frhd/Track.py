@@ -10,24 +10,24 @@ class Track():
 	def genPicture(self, inputted_image):
 		if inputted_image[-2] == 'n':
 			def convertIntB32(i):
-	    		negative = False
-	    		b = ''
-	    		conv = "0123456789abcdefghijklmnopqrstuv"
-	    		if i < 0:
-	        		negative = True
-	        		i = -i
-	    		if i == 0: return '0'
-	    		while(i>0):
-	        		b = conv[i%32] + b
-	        		i=(int)(i//32)
-	    
-	    		if negative:
-	        		b = "-"+b
-	        
-	    		return(b)
+			negative = False
+			b = ''
+			conv = "0123456789abcdefghijklmnopqrstuv"
+			if i < 0:
+				negative = True
+					i = -i
+				if i == 0: return '0'
+				while(i>0):
+					b = conv[i%32] + b
+					i=(int)(i//32)
+		
+				if negative:
+					b = "-"+b
+			
+				return(b)
 	
 			def convertB32Int(s):
-	    		return(int(s,32))
+				return(int(s,32))
 	
 			#You Need To Have PIL (pillow) and CV2 For This Part To Work
 			#You Need To Name The File To A File From Your Computer
@@ -35,10 +35,10 @@ class Track():
 			import cv2
 	
 			def get_image(filename):
-	    		PIL.Image.open(filename)
-	    		PIL.Image.open(inputted_image).convert('RGB').save('c.jpg')
-	    		image = cv2.imread("c.jpg")
-	    		return image
+				PIL.Image.open(filename)
+				PIL.Image.open(inputted_image).convert('RGB').save('c.jpg')
+				image = cv2.imread("c.jpg")
+				return image
 	
 			filename = inputted_image
 			image = get_image(filename)
@@ -46,9 +46,9 @@ class Track():
 	
 			# Converting to grayscale
 			try:
-	    		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+				gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 			except:
-	    		gray = image
+				gray = image
 	
 			from IPython.display import Image, display 
 				gimage = Image('temp.png')
@@ -61,22 +61,22 @@ class Track():
 	
 			#This Part Was Made By Alex!
 			def convert3(image):
-	    		BLACK = 0
-	    		WHITE = 255
-	    		black_img = image.copy()
-	    		gray_img = image.copy()
-	    		for i in range(len(image)):
-	        		for j in range(len(image[i])):
-	            		if image[i][j] < 64:
-	                		black_img[i][j] = BLACK
-	                		gray_img[i][j] = WHITE
-	            		if image[i][j] >= 64:
-	                		black_img[i][j] = WHITE
-	                		gray_img[i][j] = BLACK
-	            		if image[i][j] > 191:
-	                		black_img[i][j] = WHITE
-	                		gray_img[i][j] = WHITE
-	    		return black_img, gray_img
+				BLACK = 0
+				WHITE = 255
+				black_img = image.copy()
+				gray_img = image.copy()
+				for i in range(len(image)):
+					for j in range(len(image[i])):
+						if image[i][j] < 64:
+							black_img[i][j] = BLACK
+							gray_img[i][j] = WHITE
+						if image[i][j] >= 64:
+							black_img[i][j] = WHITE
+							gray_img[i][j] = BLACK
+						if image[i][j] > 191:
+							black_img[i][j] = WHITE
+							gray_img[i][j] = WHITE
+				return black_img, gray_img
 			(a3_black, a3_gray) = convert3(gray)
 	
 			print(a3_black.shape)
@@ -113,39 +113,39 @@ class Track():
 	
 			#This Part May Take A Bit Of Time
 			def output_track_codes(bw_image):
-	    		DEBUG = False
-	    		line_coordinates = []
-	    		for i in range(len(bw_image)):
-	        		start = ""
-	        		end = ""
-	        		for j in range(len(bw_image[i])):
-	            		if DEBUG: 
-	                		print ("i = " + str(i) + " j = " + str(j) + " start = '" + start + "'" + 
-	                   		" end = '" + end + "'" + " pixel value = " + str(bw_image[i][j]))
-	            		if start == "" and bw_image[i][j] < 1:
-	                		start = (str(j) + " " + str(i))
-	                		if DEBUG: print("starting line at " + str(j) + "," + str(i))
-	            		elif start != "" and bw_image[i][j] < 1:
-	                		pass
-	            		elif start == "" and bw_image[i][j] > 0:
-	                		pass
-	            		else:
-	                		if DEBUG: print("ending line at " + str(j) + "," + str(i))
-	                		end = str(j) + " " + str(i)
-	                		line_coordinates = line_coordinates + [start + " " + end]
-	                		start = ""
-	                		end = ""
-	                    
-	        		if start != "" and end == "":
-	            		if DEBUG: print("also ending line")
-	            		end = (str(j) + " " + str(i))
-	            		line_coordinates = line_coordinates + [start + " " + end]
-	            		start = ""
-	            		end = ""
-	    
-	    		# print(",".join([[convertIntB32(y) for y in x] for x in line_coordinates]))
-	    
-	    		return line_coordinates
+				DEBUG = False
+				line_coordinates = []
+				for i in range(len(bw_image)):
+					start = ""
+					end = ""
+					for j in range(len(bw_image[i])):
+						if DEBUG: 
+							print ("i = " + str(i) + " j = " + str(j) + " start = '" + start + "'" + 
+					   		" end = '" + end + "'" + " pixel value = " + str(bw_image[i][j]))
+						if start == "" and bw_image[i][j] < 1:
+							start = (str(j) + " " + str(i))
+							if DEBUG: print("starting line at " + str(j) + "," + str(i))
+						elif start != "" and bw_image[i][j] < 1:
+							pass
+						elif start == "" and bw_image[i][j] > 0:
+							pass
+						else:
+							if DEBUG: print("ending line at " + str(j) + "," + str(i))
+							end = str(j) + " " + str(i)
+							line_coordinates = line_coordinates + [start + " " + end]
+							start = ""
+							end = ""
+						
+					if start != "" and end == "":
+						if DEBUG: print("also ending line")
+						end = (str(j) + " " + str(i))
+						line_coordinates = line_coordinates + [start + " " + end]
+						start = ""
+						end = ""
+		
+				# print(",".join([[convertIntB32(y) for y in x] for x in line_coordinates]))
+		
+				return line_coordinates
 	
 			black_track_codes = output_track_codes(img_black)
 			gray_track_codes = output_track_codes(img_gray)
@@ -154,20 +154,20 @@ class Track():
 			gray_freerider_codes = (",".join([" ".join([convertIntB32(int(y)) for y in x.split()]) for x in gray_track_codes]))
 	
 			def offsetFrhdCodes (track, xoffset, yoffset):
-	    		track2 = []
-	    		lines = track.split(",")
-	    	
-	    		for line in lines:
-	        		splitline = line.split()
-	        		line_offset = []
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[0]) + xoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[1]) + yoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[2]) + xoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[3]) + yoffset))
-	        		track2.append(" ".join(line_offset))    
-	    	
-	    	return (",".join(track2))
-	    
+				track2 = []
+				lines = track.split(",")
+			
+				for line in lines:
+					splitline = line.split()
+					line_offset = []
+					line_offset.append(convertIntB32(convertB32Int(splitline[0]) + xoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[1]) + yoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[2]) + xoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[3]) + yoffset))
+					track2.append(" ".join(line_offset))	
+			
+			return (",".join(track2))
+		
 			black_offset_frhd_codes = offsetFrhdCodes(black_freerider_codes, -100, 100)
 			gray_offset_frhd_codes = offsetFrhdCodes(gray_freerider_codes, -100, 100)
 			
@@ -176,24 +176,24 @@ class Track():
 
 		elif inputted_image[-2] == 'p':
 			def convertIntB32(i):
-	    		negative = False
-	    		b = ''
-	    		conv = "0123456789abcdefghijklmnopqrstuv"
-	    		if i < 0:
-	        		negative = True
-	        		i = -i
-	    		if i == 0: return '0'
-	    		while(i>0):
-	        		b = conv[i%32] + b
-	        		i=(int)(i//32)
-	    
-	    		if negative:
-	        		b = "-"+b
-	        
-	    		return(b)
+				negative = False
+				b = ''
+				conv = "0123456789abcdefghijklmnopqrstuv"
+				if i < 0:
+					negative = True
+					i = -i
+				if i == 0: return '0'
+				while(i>0):
+					b = conv[i%32] + b
+					i=(int)(i//32)
+		
+				if negative:
+					b = "-"+b
+			
+				return(b)
 	
 			def convertB32Int(s):
-	    		return(int(s,32))
+				return(int(s,32))
 	
 			#You Need To Have PIL (pillow) and CV2 For This Part To Work
 			#You Need To Name The File To A File From Your Computer
@@ -201,10 +201,10 @@ class Track():
 			import cv2
 	
 			def get_image(filename):
-	    		PIL.Image.open(filename)
-	    		#PIL.Image.open('c.png').convert('RGB').save('c.jpg')
-	    		image = cv2.imread(inputted_image)
-	    		return image
+				PIL.Image.open(filename)
+				#PIL.Image.open('c.png').convert('RGB').save('c.jpg')
+				image = cv2.imread(inputted_image)
+				return image
 	
 			filename = inputted_image
 			image = get_image(filename)
@@ -212,9 +212,9 @@ class Track():
 	
 			# Converting to grayscale
 			try:
-	    		gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+				gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 			except:
-	    		gray = image
+				gray = image
 	
 			from IPython.display import Image, display 
 				gimage = Image('temp.png')
@@ -227,22 +227,22 @@ class Track():
 	
 			#This Part Was Made By Alex!
 			def convert3(image):
-	    		BLACK = 0
-	    		WHITE = 255
-	    		black_img = image.copy()
-	    		gray_img = image.copy()
-	    		for i in range(len(image)):
-	        		for j in range(len(image[i])):
-	            		if image[i][j] < 64:
-	                		black_img[i][j] = BLACK
-	                		gray_img[i][j] = WHITE
-	            		if image[i][j] >= 64:
-	                		black_img[i][j] = WHITE
-	                		gray_img[i][j] = BLACK
-	            		if image[i][j] > 191:
-	                		black_img[i][j] = WHITE
-	                		gray_img[i][j] = WHITE
-	    		return black_img, gray_img
+				BLACK = 0
+				WHITE = 255
+				black_img = image.copy()
+				gray_img = image.copy()
+				for i in range(len(image)):
+					for j in range(len(image[i])):
+						if image[i][j] < 64:
+							black_img[i][j] = BLACK
+							gray_img[i][j] = WHITE
+						if image[i][j] >= 64:
+							black_img[i][j] = WHITE
+							gray_img[i][j] = BLACK
+						if image[i][j] > 191:
+							black_img[i][j] = WHITE
+							gray_img[i][j] = WHITE
+				return black_img, gray_img
 			(a3_black, a3_gray) = convert3(gray)
 	
 			print(a3_black.shape)
@@ -279,39 +279,39 @@ class Track():
 	
 			#This Part May Take A Bit Of Time
 			def output_track_codes(bw_image):
-	    		DEBUG = False
-	    		line_coordinates = []
-	    		for i in range(len(bw_image)):
-	        		start = ""
-	        		end = ""
-	        		for j in range(len(bw_image[i])):
-	            		if DEBUG: 
-	                		print ("i = " + str(i) + " j = " + str(j) + " start = '" + start + "'" + 
-	                   		" end = '" + end + "'" + " pixel value = " + str(bw_image[i][j]))
-	            		if start == "" and bw_image[i][j] < 1:
-	                		start = (str(j) + " " + str(i))
-	                		if DEBUG: print("starting line at " + str(j) + "," + str(i))
-	            		elif start != "" and bw_image[i][j] < 1:
-	                		pass
-	            		elif start == "" and bw_image[i][j] > 0:
-	                		pass
-	            		else:
-	                		if DEBUG: print("ending line at " + str(j) + "," + str(i))
-	                		end = str(j) + " " + str(i)
-	                		line_coordinates = line_coordinates + [start + " " + end]
-	                		start = ""
-	                		end = ""
-	                    
-	        		if start != "" and end == "":
-	            		if DEBUG: print("also ending line")
-	            		end = (str(j) + " " + str(i))
-	            		line_coordinates = line_coordinates + [start + " " + end]
-	            		start = ""
-	            		end = ""
-	    
-	    		# print(",".join([[convertIntB32(y) for y in x] for x in line_coordinates]))
-	    
-	    		return line_coordinates
+				DEBUG = False
+				line_coordinates = []
+				for i in range(len(bw_image)):
+					start = ""
+					end = ""
+					for j in range(len(bw_image[i])):
+						if DEBUG: 
+							print ("i = " + str(i) + " j = " + str(j) + " start = '" + start + "'" + 
+					   		" end = '" + end + "'" + " pixel value = " + str(bw_image[i][j]))
+						if start == "" and bw_image[i][j] < 1:
+							start = (str(j) + " " + str(i))
+							if DEBUG: print("starting line at " + str(j) + "," + str(i))
+						elif start != "" and bw_image[i][j] < 1:
+							pass
+						elif start == "" and bw_image[i][j] > 0:
+							pass
+						else:
+							if DEBUG: print("ending line at " + str(j) + "," + str(i))
+							end = str(j) + " " + str(i)
+							line_coordinates = line_coordinates + [start + " " + end]
+							start = ""
+							end = ""
+						
+					if start != "" and end == "":
+						if DEBUG: print("also ending line")
+						end = (str(j) + " " + str(i))
+						line_coordinates = line_coordinates + [start + " " + end]
+						start = ""
+						end = ""
+		
+				# print(",".join([[convertIntB32(y) for y in x] for x in line_coordinates]))
+		
+				return line_coordinates
 	
 			black_track_codes = output_track_codes(img_black)
 			gray_track_codes = output_track_codes(img_gray)
@@ -320,20 +320,20 @@ class Track():
 			gray_freerider_codes = (",".join([" ".join([convertIntB32(int(y)) for y in x.split()]) for x in gray_track_codes]))
 	
 			def offsetFrhdCodes (track, xoffset, yoffset):
-	    		track2 = []
-	    		lines = track.split(",")
-	    	
-	    		for line in lines:
-	        		splitline = line.split()
-	        		line_offset = []
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[0]) + xoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[1]) + yoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[2]) + xoffset))
-	        		line_offset.append(convertIntB32(convertB32Int(splitline[3]) + yoffset))
-	        		track2.append(" ".join(line_offset))    
-	    	
-	    	return (",".join(track2))
-	    
+				track2 = []
+				lines = track.split(",")
+			
+				for line in lines:
+					splitline = line.split()
+					line_offset = []
+					line_offset.append(convertIntB32(convertB32Int(splitline[0]) + xoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[1]) + yoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[2]) + xoffset))
+					line_offset.append(convertIntB32(convertB32Int(splitline[3]) + yoffset))
+					track2.append(" ".join(line_offset))	
+			
+			return (",".join(track2))
+		
 			black_offset_frhd_codes = offsetFrhdCodes(black_freerider_codes, -100, 100)
 			gray_offset_frhd_codes = offsetFrhdCodes(gray_freerider_codes, -100, 100)
 			
@@ -366,7 +366,7 @@ class Track():
 			self.tracklist[0] += [formattedPoints]
 		if typeofline == 's': #scenery
 			self.tracklist[1] += [formattedPoints]
-
+			
 	def insStar(self,x,y):
 		self.tracklist[2] += [['C',x,y]]
 
