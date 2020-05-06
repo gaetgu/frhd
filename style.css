@@ -526,19 +526,20 @@ p {
 }
 
 h2 {
-  color: #ffffff;
+  color: #2E3440;
   font-family: sans-serif;
 }
 
 h4 {
-  color: rgb(115, 115, 115);
+  color: #2E3440;
   font-family: sans-serif;
   line-height: 25px;
+  opacity: 0.7;
 }
 
 
 a {
-  color: #4C566A;
+  color: #3B4252;
 }
 
 /* infinite.css, a library for animating with CSS */
@@ -566,7 +567,7 @@ a {
 */
 @-webkit-keyframes opacityPulse {
     0% {opacity: 0.0;}
-    50% {opacity: 1.0;}
+    50% {opacity: 0.6;}
     100% {opacity: 0.0;}
 }
 
@@ -579,7 +580,7 @@ a {
     }
 */
 @-webkit-keyframes alertPulse {
-    0% {background-color: #9A2727; opacity: 1;}
+    0% {background-color: #3B4252; opacity: 1;}
     50% {opacity: red; opacity: 0.75; }
     100% {opacity: #9A2727; opacity: 1;}
 }
