@@ -1,3 +1,9 @@
+.. raw:: html
+
+    <img src="logo.png">
+
+
+
 FRHD
 ====
 
