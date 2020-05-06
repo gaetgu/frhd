@@ -1,6 +1,6 @@
 .. raw:: html
 
-    <img src="logo.png">
+    <img src="logo_v_one.png">
 
 
 
