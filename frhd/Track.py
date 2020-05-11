@@ -8,7 +8,7 @@ class Track():
 		self.tracklist = [[],[],[]] #3 lists: one for physics lines, one for scenery, and one for powerups
 	
 	
-	def combineTrack(self)
+	def combineTrack(self):
 		track_one = input("Please copy your first track's code here:\n")
 		track_two = input("Please copy your second track's code here:\n")
 		track_one = track_one.split("#")
