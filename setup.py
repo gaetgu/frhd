@@ -1,12 +1,15 @@
-from setuptools import setup, find_packages
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 versionFile = "VERSION"
 setup(name="frhd-python",
-    version=4.5,
+    version=4.5.2,
     description="Library to edit FRHD tracks",
-    long_description=open("README.rst").read(),
+    long_description=long_description,
     url="https://github.com/gaetgu/frhd",
-    download_url="https://github.com/gaetgu/frhd/archive/v_4.5.tar.gz",
+    download_url="https://github.com/gaetgu/frhd/archive/v_4.5.2.tar.gz",
     install_requires=[
           'decode',
       ],
