@@ -44,20 +44,18 @@
 #   └── style.css
 #  =============================================================
 
-#  =============================================================
+#  ============================================================= #
 #  Track.py
-#  =============================================================
+#  ============================================================= #
 
 from frhd import Encode as En  # Import the encode.py file to encode to base32
-import random                  # Import the random library for track generator
 
-# == Soon to be deprecated == #
+# =============================== DEPRECATED =============================== #
+# import random                                                              #
+# from time import sleep                                                     #
+# =============================== DEPRECATED =============================== #
 
-from time import sleep         # Import the sleep libary for the track generator
-
-# == /Soon to be deprecated = #
-
-Class Track():
+Class Track:
 
     # =========================== START OF CLASS =========================== #
 
@@ -70,6 +68,7 @@ Class Track():
 
         # 3 empty lists, one each for physics, scenery, and powerups.
         self.tracklist = [[], [], []]
+
 
     """Insert Line"""
 
@@ -103,11 +102,13 @@ Class Track():
         if typeofline == 's':
             self.tracklist[1] += [formatted_points]
 
+
     """Insert Star"""
 
     def insStar(self, x, y):
 
         self.tracklist[2] += [['T', x, y]]
+
 
     """Insert Checkpoint"""
 
@@ -115,17 +116,20 @@ Class Track():
 
         self.tracklist[2] += [['C', x, y]]
 
+
     """Insert Slow-Motion"""
 
     def insSlo(self, x, y):
 
         self.tracklist[2] += [['S', x, y]]
 
+
     """Insert Bomb"""
 
     def insBomb(self, x, y):
 
         self.tracklist[2] += [['O', x, y]]
+
 
     """Insert Gravity"""
 
@@ -138,6 +142,7 @@ Class Track():
 
         self.tracklist[2] += [['G', x, y, rot]]
 
+
     """Insert Boost"""
 
     def insBoost(self, x, y, rot):
@@ -146,11 +151,13 @@ Class Track():
 
         self.tracklist[2] += [['B', x, y, rot]]
 
+
     """Insert the default "Start Line"."""
 
     def insStart(self):  # Needs no x/y since the line is defined in the code.
 
-        insLine('p', -40, 50, 40, 50)  # Probably bad practice, but whatever.
+        insLine(-40, 50, 40, 50, 'p')  # Probably bad practice, but whatever.
+
 
     """Generate a random track."""
 
@@ -158,16 +165,43 @@ Class Track():
     # == Code @ raw.githubusercontent.com/asdase26/FreeGen/master/main.py == #
     # ============================= DEPRECATED ============================= #
 
+
+    """Generate final code"""
+
+    def genCode(self):
+        self.trackdatalist = [[],[],[]] #holds raw data to be joined into frhd text
+
+        for pline in self.tracklist[0]: #physics
+            self.trackdatalist[0] += En.encline(pline)
+
+        for sline in self.tracklist[1]: #scenery
+            self.trackdatalist[1] += En.encline(sline)
+
+        for pup in self.tracklist[2]: #powerups
+            if len(pup) == 3: #if powerup does not have the rotation attribute
+                self.trackdatalist[2] += En.encpup(pup[1],pup[2],pup[0])
+            if len(pup) == 4: #if powerup does have rotation attribute
+                self.trackdatalist[2] += En.encpupr(pup[1],pup[2],pup[3],pup[0])
+
+        self.finalData = '' #this will be put into frhd
+
+        for typ in self.trackdatalist: #type of object
+            for indiv in typ: #individual object
+                self.finalData += indiv[0]
+            self.finalData += '#'#add object end marker
+
+        return self.finalData
+
+
     # ====================================================================== #
     # ============================ END OF CLASS ============================ #
     # ====================================================================== #
 
-"""Return the final track code"""
 
 if __name__ == 'main':
     my_track = Track()
-    my_track.insLine('p', 6, 6, 6, 6)
-    my_track.insLine('s', 6, 6, 6, 6)
+    my_track.insLine(6, 6, 6, 6, 'p')
+    my_track.insLine(6, 6, 6, 6, 's')
     my_track.insStar(6, 6)
     my_track.insCheck(6, 6)
     my_track.insSlowMo(6, 6)
