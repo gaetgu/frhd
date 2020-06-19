@@ -86,7 +86,7 @@ Class Track:
                         formatted_points.append(item)
                     else:
                         unpack(item, n + 1)
-                        unpack(points, 0)
+        unpack(points, 0)
 
         # Arrange the lists
         if len(formatted_points) % 2 == 1:
@@ -156,7 +156,7 @@ Class Track:
 
     def insStart(self):  # Needs no x/y since the line is defined in the code.
 
-        insLine(-40, 50, 40, 50, 'p')  # Probably bad practice, but whatever.
+        insLine('p', -40, 50, 40, 50)  # Probably bad practice, but whatever.
 
 
     """Generate a random track."""
