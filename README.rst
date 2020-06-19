@@ -22,7 +22,7 @@ calling
 
 .. code:: python
 
-    my_track.insLine(-40,50,100,50,'p')
+    my_track.insLine('p', -40, 50, 100, 50)
 
 The ``'p'`` in that statement tells the code to create a physics line.
 Now you need to print out this code:
@@ -39,7 +39,7 @@ look like this:
 
     import frhd
     my_track = frhd.Track.Track()
-    my_track.insLine(-40,50,100,50,'s')
+    my_track.insLine('s', -40, 50, 100, 50)
     print(my_track.genCode())
 
 To add a boost just use this syntax:
@@ -71,8 +71,9 @@ The other power-ups are as follows:
 
 
 NOTE: As it is a pain to update the docs at pypi I will not keep these updated very well.
-To see the up to date docs go to https://github.com/gaetgu/frhd/blob/master/README.md
+To see the up to date docs go to https://github.com/gaetgu/frhd/wiki/
 
 
-This was all inspired by frhd.js, a library made by ObeyLordGoomy that
-does the same thing, but for JavaScript
+
+This project was inspired by frhd.js, a library made by ObeyLordGoomy that
+does the same thing, but for JavaScript.
