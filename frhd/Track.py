@@ -1,106 +1,180 @@
-from frhd import Encode as En #import Encode.py (for encoding base32)
+#  /$$$$$$$$ /$$$$$$$  /$$   /$$ /$$$$$$$
+# | $$_____/| $$__  $$| $$  | $$| $$__  $$
+# | $$      | $$  \ $$| $$  | $$| $$  \ $$
+# | $$$$$   | $$$$$$$/| $$$$$$$$| $$  | $$
+# | $$__/   | $$__  $$| $$__  $$| $$  | $$
+# | $$      | $$  \ $$| $$  | $$| $$  | $$
+# | $$      | $$  | $$| $$  | $$| $$$$$$$/
+# |__/      |__/  |__/|__/  |__/|_______/
 
-class Track():
-	"""Create a freerider track instance."""
 
-	def __init__(self):
-		self.trackdata = '' #This will hold the track's mathematical parts
-		self.tracklist = [[],[],[]] #3 lists: one for physics lines, one for scenery, and one for powerups
-	
-	
-	def combineTrack(self):
-		track_one = input("Please copy your first track's code here:\n")
-		track_two = input("Please copy your second track's code here:\n")
-		track_one = track_one.split("#")
-		track_two = track_two.split("#")
-		physics_code = track_one[0] + "," + track_two[0]
-		scenery_code = track_one[1] + "," + track_two[1]
-		powerup_code = track_one[2] + "," + track_two[2]
-		track_code = physics_code + "#" + scenery_code + "#" + powerup_code
-		print(track_code)
+#  =============================================================
+#   A python package to generate tracks completely with python.
+#   Created and maintained by Gabriel Gutierrez.
+#   Special thanks to Pie42 for helping out with hte code.
+#
+#   The directory structure:
+#   .
+#   ├── LICENSE
+#   ├── README.rst
+#   ├── _config.yml
+#   ├── frhd
+#   │   ├── Decode.py
+#   │   ├── Decode.pyc
+#   │   ├── Encode.py
+#   │   ├── Loader.py
+#   │   ├── Track.py
+#   │   ├── __init__.py
+#   │   └── __pycache__
+#   │       ├── Decode.cpython-34.pyc
+#   │       ├── Encode.cpython-34.pyc
+#   │       ├── Loader.cpython-34.pyc
+#   │       ├── Track.cpython-34.pyc
+#   │       └── __init__.cpython-34.pyc
+#   ├── frhd.egg-info
+#   │   ├── PKG-INFO
+#   │   ├── SOURCES.txt
+#   │   ├── dependency_links.txt
+#   │   └── top_level.txt
+#   ├── index.html
+#   ├── logo_v_one.png
+#   ├── script.js
+#   ├── setup.cfg
+#   ├── setup.py
+#   └── style.css
+#  =============================================================
 
-	
-	
-	def moveTrack(self, fov, track, xcoord, ycoord):
+#  ============================================================= #
+#  Track.py                                                      
+#  ============================================================= #
 
-			if fov == 'f':
-				with open(track, 'r') as file:
-					track_code = file.read().replace('\n', '')
-					print((lambda c,n,x,y,l:'#'.join([','.join([(lambda o:' '.join([(lambda m:(lambda p,v:'0'if p==0else(('-'if v else'')+''.join([n[((p//(32**q))%32)]for q in range(int(l.log(p,32))+1)][::-1])))(abs(m),(m<0)))(int(m,32)+x if(t!=2and j%2==0)or(t==2and j%2==1)else int(m,32)+y)if(t!=2or j!=0)else m for j,m in enumerate(o)if m!='']))(i.split(' '))for i in d])for t,d in enumerate(c)]))([a.split(',')for a in track_code.split('#')],list('0123456789abcdefghijklmnopqrstuv'),int(xcoord),int(ycoord),__import__('math')))
-			else:
-				track_code = str(track)
-				print((lambda c,n,x,y,l:'#'.join([','.join([(lambda o:' '.join([(lambda m:(lambda p,v:'0'if p==0else(('-'if v else'')+''.join([n[((p//(32**q))%32)]for q in range(int(l.log(p,32))+1)][::-1])))(abs(m),(m<0)))(int(m,32)+x if(t!=2and j%2==0)or(t==2and j%2==1)else int(m,32)+y)if(t!=2or j!=0)else m for j,m in enumerate(o)if m!='']))(i.split(' '))for i in d])for t,d in enumerate(c)]))([a.split(',')for a in track_code.split('#')],list('0123456789abcdefghijklmnopqrstuv'),int(xcoord),int(ycoord),__import__('math')))
+from frhd import Encode as En  # Import the encode.py file to encode to base32
 
-	def insLine(self, typeofline, *points):
-		points = list(points)
-		formattedPoints = []
-		unpack = (lambda x, n:[formattedPoints.append(item) if type(item) == int else unpack(item, n+1) for item in x if n <= 100])
-		unpack(points, 0)
-		if len(formattedPoints) % 2 == 1:
-			points.pop()
-		if len(formattedPoints) < 4:
-			return
-		if typeofline == 'p': #physics
-			self.tracklist[0] += [formattedPoints]
-		if typeofline == 's': #scenery
-			self.tracklist[1] += [formattedPoints]
-			
-	def insStar(self,x,y):
-		self.tracklist[2] += [['C',x,y]]
+# =============================== DEPRECATED =============================== #
+# import random                                                              #
+# from time import sleep                                                     #
+# =============================== DEPRECATED =============================== #
 
-	def insCheck(self,x,y):
-		self.tracklist[2] += [['T',x,y]]
+Class Track():
 
-	def insSlowMo(self,x,y):
-		self.tracklist[2] += [['S',x,y]]
+    # =========================== START OF CLASS =========================== #
 
-	def insBomb(self,x,y):
-		self.tracklist[2] += [['O',x,y]]
+    """Initialize the *self* item, a required argument for all funtions."""
 
-	def insGravity(self,x,y,rot):
-		assert rot in range(360) #gravity has rotation too
-		self.tracklist[2] += [['G',x,y,rot]]
+    def __init__(self):
 
-	def insBoost(self,x,y,rot):
-		assert rot in range(360)
-		self.tracklist[2] += [['B',x,y,rot]]
+        # This will hold the track's mathematics.
+        self.trackdata = ''
 
-	def insStartLine(self):
-		insLine(-40, 50, 40, 50, 'p')
+        # 3 empty lists, one each for physics, scenery, and powerups.
+        self.tracklist = [[], [], []]
 
-	def genCode(self):
-		self.trackdatalist = [[],[],[]] #holds raw data to be joined into frhd text
+    """Insert Line"""
 
-		for pline in self.tracklist[0]: #physics
-			self.trackdatalist[0] += En.encline(pline)
+    def insLine(self, typeofline, *points):
 
-		for sline in self.tracklist[1]: #scenery
-			self.trackdatalist[1] += En.encline(sline)
+        # Converts the *points argument to a list
+        points = list(points)
+        formatted_points = []
 
-		for pup in self.tracklist[2]: #powerups
-			if len(pup) == 3: #if powerup does not have the rotation attribute
-				self.trackdatalist[2] += En.encpup(pup[1],pup[2],pup[0])
-			if len(pup) == 4: #if powerup does have rotation attribute
-				self.trackdatalist[2] += En.encpupr(pup[1],pup[2],pup[3],pup[0])
+        # Unpacks points
+        def unpack(x, n):
+            if n <= 100:
+                for item in x:
+                    if type(item) == int:
+                        formatted_points.append(item)
+                    else:
+                        unpack(item, n + 1)
+                        unpack(points, 0)
 
-		self.finalData = '' #this will be put into frhd
+        # Arrange the lists
+        if len(formatted_points) % 2 == 1:
+            points.pop()
+        if len(formatted_points) < 4:
+            return
 
-		for typ in self.trackdatalist: #type of object
-			for indiv in typ: #individual object
-				self.finalData += indiv[0]
-			self.finalData += '#'#add object end marker
+        # Physics Line
+        if typeofline == 'p':
+            self.tracklist[0] += [formatted_points]
 
-		return self.finalData
+        # Scenery Line
+        if typeofline == 's':
+            self.tracklist[1] += [formatted_points]
 
-if __name__ == '__main__':
-	my_track = Track()
-	my_track.insLine(6,6,6,6,'p')
-	my_track.insLine(6,6,6,6,'s')
-	my_track.insStar(6,6)
-	my_track.insCheck(6,6)
-	my_track.insSlowMo(6,6)
-	my_track.insBomb(6,6)
-	my_track.insGravity(6,6,6)
-	my_track.insBoost(6,6,6)
-	my_track.genCode()
-	print(my_track.genCode())
+    """Insert Star"""
+
+    def insStar(self, x, y):
+
+        self.tracklist[2] += [['T', x, y]]
+
+    """Insert Checkpoint"""
+
+    def insCheck(self, x, y):
+
+        self.tracklist[2] += [['C', x, y]]
+
+    """Insert Slow-Motion"""
+
+    def insSlo(self, x, y):
+
+        self.tracklist[2] += [['S', x, y]]
+
+    """Insert Bomb"""
+
+    def insBomb(self, x, y):
+
+        self.tracklist[2] += [['O', x, y]]
+
+    """Insert Gravity"""
+
+    def insGrav(self, x, y, rot):
+
+        # As you see below, certain powerups have a *rotation*. This is equal to
+        # degrees clockwise starting at the top.
+
+        assert rot in range(360)
+
+        self.tracklist[2] += [['G', x, y, rot]]
+
+    """Insert Boost"""
+
+    def insBoost(self, x, y, rot):
+
+        assert rot in range(360)
+
+        self.tracklist[2] += [['B', x, y, rot]]
+
+    """Insert the default "Start Line"."""
+
+    def insStart(self):  # Needs no x/y since the line is defined in the code.
+
+        insLine(-40, 50, 40, 50, 'p')  # Probably bad practice, but whatever.
+
+    """Generate a random track."""
+
+    # ============================= DEPRECATED ============================= #
+    # == Code @ raw.githubusercontent.com/asdase26/FreeGen/master/main.py == #
+    # ============================= DEPRECATED ============================= #
+
+    # ====================================================================== #
+    # ============================ END OF CLASS ============================ #
+    # ====================================================================== #
+
+"""Return the final track code"""
+
+if __name__ == 'main':
+    my_track = Track()
+    my_track.insLine(6, 6, 6, 6, 'p')
+    my_track.insLine(6, 6, 6, 6, 's')
+    my_track.insStar(6, 6)
+    my_track.insCheck(6, 6)
+    my_track.insSlowMo(6, 6)
+    my_track.insBomb(6, 6)
+    my_track.insGravity(6, 6, 6)
+    my_track.insBoost(6, 6, 6)
+    my_track.genCode()
+    print(my_track.genCode())
+
+# =========================================================================== #
+# ============================== END OF FILE ================================ #
+# =========================================================================== #
