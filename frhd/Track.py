@@ -55,7 +55,7 @@ from frhd import Encode as En  # Import the encode.py file to encode to base32
 # from time import sleep                                                     #
 # =============================== DEPRECATED =============================== #
 
-Class Track:
+class Track:
 
     # =========================== START OF CLASS =========================== #
 
