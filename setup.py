@@ -2,11 +2,11 @@ from setuptools import *
 
 versionFile = "VERSION"
 setup(name="frhd-python",
-    version=4.9,
+    version=5.0.0,
     description="Library to edit FRHD tracks",
     long_description=open('README.rst').read(),
     url="https://github.com/gaetgu/frhd",
-    download_url="https://github.com/gaetgu/frhd/archive/v_4.9.tar.gz",
+    download_url="https://github.com/gaetgu/frhd/archive/v_5.0.tar.gz",
     install_requires=[
           'decode',
       ],
