@@ -150,49 +150,64 @@ class Track:
         assert rot in range(360)
 
         self.tracklist[2] += [['B', x, y, rot]]
-    
-    
+
+
     """Create a bezier curve (beta)"""
-    
-    def insCurve(self, linetype, num, minlen, *points):
-    '''linetype: type of line ('s' = scenery, 'p' = physics')
-    num: number of line segments making up the curve
-    minlen: minimum length of a line segment in the curve
-    i'm not going to bother to reimplement unpack or anything right now so points needs to be either a single list of points or a bunch of individual points'''
-    #should get things out of a single list
-    if len(points) == 1 and (type(points[0]) == list or type(points[0]) == tuple):
-        points = points[0]
-    
-    if len(points) < 3:
-        return
-    
-    N = len(points)
-    t = range(num + 1)
-    curve = [[0, 0] for i in range(num)]
-    
-    factorial = lambda x: 1 if x < 2 else x * factorial(x - 1)
-    
-    for i in range(N):
-        #binomial coefficient
-        binomial = factorial(N - 1) / float(factorial(i) * factorial((N - 1) - i))
-        #bernstein polynomial
-        bernstein = [binomial * ((m / num) ** i) * ((1 - (m / num)) ** ((N - 1) - i)) for m in t]
-        #thing to add to curve(product of the bernstein and the current point)
-        cCurve = [[b * points[i][0], b * points[i][1]] for b in bernstein]
-        #adding cCurve to the total curve
-        curve = list(map(lambda a, b: [a[0] + b[0], a[1] + b[1]], curve, cCurve))
-    
-    prevx = points[0][0]
-    prevy = points[0][1]
-    for i in range(num):
-        x = int(curve[i][0])
-        y = int(curve[i][0])
-        if (prevx - x > minlen or prevx - x < -1 * minlen) or (prevy - y > minlen or prevy - y < -minlen):
-            self.insLine(kind, prevx, prevy, x, y)
-            prevx = x
-            prevy = y
-    self.insLine(kind, prevx, prevy, x, y)
-    
+
+    def insCurve(self, typeofline, num, minlen, *points):
+
+        # typeofline: 'p', 's'
+        # num: number of line segements in the curve
+        # minlen: minimum length of the line segments
+        # *points: use a single list of points, e.g. ↓
+        # [(x, y), (x, y), (x, y)]
+
+        if len(points) == 1 and (type(points[0]) == list or type(points[0]) == tuple):
+
+            points = points[0]
+
+
+        if len(points) < 3:
+
+            return
+
+
+        N = len(points)
+        t = range(num + 1)
+        curve = [[0,0] for i in range(num)]
+
+        factorial = lambda x: 1 if x < 2 else x * factorial(x - 1)
+
+        for i in range(N):
+
+            # Binomial coefficient
+            binomial = factorial(N - 1) / float(factorial(i) * factorial(N - 1) - i)
+
+            # Bernstein polynomial
+            bernstein = [binomial * ((m / num) ** i) * ((1 - (m / num)) ** ((N - 1) - i)) for m in t]
+
+            cCurve = [[b * points[i][0], b * points[i][1]] for b in bernstein]
+            curve = list(map(lambda a, b: [a[0] + b[0], a[1] + b[1]], curve, cCurve))
+
+
+        prevx = points[0][0]
+        prevy = points[0][1]
+
+        for i in range(num):
+
+            x = int(curve[i][0])
+            y = int(curve[i][0])
+
+            if (prevx - x > minlen or prevx - x < -1 * minlen) or (prevy - y > minlen or prevy - y < -minlen):
+
+                self.insLine(kind, prevx, prevy, x, y)
+
+                prevx = x
+                prevy = y
+
+
+        self.insLine(kin, prevx, prevy, x, y)
+
 
     """Insert the default "Start Line"."""
 
