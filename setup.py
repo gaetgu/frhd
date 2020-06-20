@@ -2,11 +2,11 @@ from setuptools import *
 
 versionFile = "VERSION"
 setup(name="frhd-python",
-    version=4.7,
+    version=4.8,
     description="Library to edit FRHD tracks",
     long_description=open('README.rst').read(),
     url="https://github.com/gaetgu/frhd",
-    download_url="https://github.com/gaetgu/frhd/archive/v_4.7.tar.gz",
+    download_url="https://github.com/gaetgu/frhd/archive/v_4.8.tar.gz",
     install_requires=[
           'decode',
       ],
@@ -20,6 +20,6 @@ setup(name="frhd-python",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3 :: Only"
     ],
-    keywords="development freeriderhd freerider code track tracks",
+    keywords="development freeriderhd freerider frhd code track tracks",
     packages=find_packages(exclude=["images"]),
 )
