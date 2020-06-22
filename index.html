@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>FRHD-Python</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shakrmedia/tuesday@v1.1.0/build/tuesday.min.css">
+    </head>
+
+    <body><img class="animated tdStampInSwing" src="./logo.png"><a class="animated tdFadeIn" href="https://github.com/gaetgu/frhd" target="_blank">
+            <h1 class="animated tdFadeIn">GitHub</h1>
+        </a>
+        <hr class="animated tdFadeIn"><a>
+            <h2 class="animated tdFadeIn">Create a box</h2>
+        </a>
+        <p class="animated tdFadeIn">A short example of the librarie's usage.</p><pre><code class="language-python">import frhd as fr
+my_track = fr.Track.Track()
+
+x1 = -40
+x2 = 40
+y1 = 40
+y2 = 40
+
+type_of_line = input("What kind of block would you like? (s for grey, p for black): ")
+
+if type_of_line == 's':
+
+    for x in range(111):
+        my_track.insLine('s', x1, y1, x2, y2)
+        
+        y1 -= 1
+        y2 -= 1
+
+elif type_of_line == 'p':
+    
+for x in range(111):
+    my_track.insLine('p', x1, y1, x2, y2)
+    
+    y1 -= 1
+    y2 -= 1
+
+
+"""Or a more robust version"""
+
+t_o_f = input("What kind of block would you like? (s for grey, p for black): ") # Used a different variable to avoid clashing
+
+if t_o_f == 's' or t_o_f == 'p':
+    my_track.insLine(t_o_f, x1, y1, x2, y2)
+else:
+    print('Please enter a valid character!')
+
+
+print(my_track.genCode())</code></pre><a href="./docs/docs.html">
+            <h2>Documentation</h2>
+        </a><a href="./docs/files.html">
+            <h2>Files</h2>
+        </a>
+    </body>
+    <script src="prism.js"></script>
+
+</html>

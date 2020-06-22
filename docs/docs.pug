@@ -1,0 +1,63 @@
+// out: docs.html, pretty: true
+doctype html
+ 
+html
+    head
+        title Documentation
+        link(rel='stylesheet', href='main.css')
+        link(rel='stylesheet', type='text/css', href='https://cdn.jsdelivr.net/gh/shakrmedia/tuesday@v1.1.0/build/tuesday.min.css')
+    
+    body
+        
+        mixin python
+            pre
+                code.language-python
+                    block
+        
+        h2 Documentation
+        hr
+        p First, you need to install the library by running #[code pip install frhd-python] in a terminal. Then you can <br> import the library and declare the Track class.
+        
+        +python.
+            import frhd as fr
+            my_track = fr.Track.Track()
+        
+        p This allows you to easily call the included functions. For a list of the supported syntax and their <br> functions, see below.
+        
+        +python.
+            # Inserts a line between a specified list of coordinates
+            my_track.insLine('p', x, y, x2, y2, x3, y3...)
+            
+            # Inserts a star
+            my_track.insStar(x, y)
+            
+            # Inserts a checkpoint
+            my_track.insCheck(x, y)
+            
+            # Inserts a slow-motion
+            my_track.insSlowMo(x, y)
+            
+            # Inserts a bomb
+            my_track.insBomb(x, y)
+            
+            # Inserts a gravity with specified rotation (in degrees clockwise from top)
+            my_track.insGrav(x, y, rot)
+            
+            # Inserts a boost with specified rotation (in degrees clockwise from top)
+            my_track.insBoost(x, y, rot)
+            
+            # Prints out the final code
+            print(my_track.genCode())
+        p As you can see, it is pretty intuitive. There are almost always beta functions included in the <br> code that come and go, so they are not being documented as fully until they are completely <br> stable. For example, we used to have a picture to track generator, deprecated several versions <br> ago, and a track generator, deprecated just a few versions ago, and an experimental curve tool, <br> deprecated very soon after release of the library. There is a dedicated wiki page to the beta <br> features located #[strong #[a(href='https://github.com/gaetgu/wiki/Beta-Features', target='_blank') here]].
+            
+        p If you find an issue in the code or are having issues with the library please file an issue at the <br> GitHub #[strong #[a(href='https://github.com/gaetgu/frhd/issues/new', target='_blank') here]].
+        
+        p If you would like to contribute please either file a pull request or file an issue with #[em CREQ] <br> in the title. (e.g. title: #[em #[bold CREQ] request.])
+        
+        br
+        br
+        
+        small Copyright 2019-2020 Gabriel Gutierrez, MIT
+    
+        
+        script(src='prism.js')
