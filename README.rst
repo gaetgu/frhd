@@ -5,7 +5,7 @@ Free Rider HD is an HTML5 game that utilizes the canvas element to
 display an interactive biking game. This script allows you to make your
 own tracks using Python! Let's go over the basic syntax:
 
-First of all, import the library:
+First, import the library:
 
 .. code:: python
 
@@ -17,7 +17,7 @@ Now create a track class:
 
     my_track = frhd.Track.Track()
 
-Now that you have the frontmatter out of the way, create a line by
+Now that you have the importing etc. out of the way, create a line by
 calling
 
 .. code:: python
