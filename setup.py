@@ -8,7 +8,9 @@ setup(name="frhd-python",
     url="https://github.com/gaetgu/frhd",
     download_url="https://github.com/gaetgu/frhd/archive/v_5.1.tar.gz",
     install_requires=[
-          'decode',
+        'json',
+        'requests',
+        'decode'
       ],
     author="Gaetgu",
     author_email="gabriel.ethan.phantom@gmail.com",
