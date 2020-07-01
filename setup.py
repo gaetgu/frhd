@@ -6,7 +6,7 @@ setup(name="frhd-python",
     description="Library to edit FRHD tracks",
     long_description=open('README.rst').read(),
     url="https://github.com/gaetgu/frhd",
-    download_url="https://github.com/gaetgu/frhd/archive/v_5.2.tar.gz",
+    download_url="https://github.com/gaetgu/frhd/archive/v_5.3.tar.gz",
     install_requires=[
         'json',
         'requests',
