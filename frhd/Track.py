@@ -251,10 +251,12 @@ class Track:
 
         return self.finalData
     
+    @staticmethod
     def getUser(username):
         response = requests.get("https://www.freeriderhd.com/u/{}?ajax".format(username))
         return response.json()
     
+    @staticmethod
     def getTrack(track_id):
         response = requests.get("https://www.freeriderhd.com/t/{}?ajax=true".format(track_id))
         return response.json()
