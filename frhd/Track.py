@@ -48,6 +48,8 @@
 #  Track.py
 #  ============================================================= #
 
+import json
+import requests
 from frhd import Encode as En  # Import the encode.py file to encode to base32
 
 # =============================== DEPRECATED =============================== #
@@ -248,6 +250,15 @@ class Track:
             self.finalData += '#'#add object end marker
 
         return self.finalData
+    
+    def getUser(username):
+        response = requests.get("https://www.freeriderhd.com/u/{}?ajax".format(username))
+        return response.json()
+    
+    def getTrack(track_id):
+        response = requests.get("https://www.freeriderhd.com/t/{}?ajax=true".format(track_id))
+        return response.json()
+        
 
 
     # ====================================================================== #
