@@ -16,7 +16,7 @@ setup(name="frhd-python",
     author_email="gabriel.ethan.phantom@gmail.com",
     license="MIT License",
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Code Generators",
         "License :: OSI Approved :: MIT License",
