@@ -1,6 +1,9 @@
 FRHD
 ====
 
+.. image:: img/FRHD\ Library.png
+    :width: 
+
 Free Rider HD is an HTML5 game that utilizes the canvas element to
 display an interactive biking game. This script allows you to make your
 own tracks using Python! Let's go over the basic syntax:
