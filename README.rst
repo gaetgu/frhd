@@ -1,7 +1,7 @@
 FRHD
 ====
 
-.. image:: img/FRHD\ Library.png
+.. image:: img/FRHD Library.png
     :width: 
 
 Free Rider HD is an HTML5 game that utilizes the canvas element to
