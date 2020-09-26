@@ -79,4 +79,4 @@ To see the up to date docs go to https://github.com/gaetgu/frhd/wiki/
 
 
 This project was inspired by frhd.js, a library made by ObeyLordGoomy that
-does the same thing, but for JavaScript.
+does more or less the same thing, but in JavaScript.
