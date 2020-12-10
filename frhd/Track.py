@@ -46,10 +46,10 @@
 
 import json                     # Import json for the getTrack and getUser
 import requests                 # Import requests for the getTrack and getUser
-from frhd import Encode as En  # Import the encode.py file to encode to base32
+from frhd import Encode as En   # Import the encode.py file to encode to base32
 
 
-class Track:
+class Track: "h"
 
     def __init__(self):
         # Holds the track's math
